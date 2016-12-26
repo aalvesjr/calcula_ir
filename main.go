@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	salario "github.com/aalvesjr/salario"
+	"github.com/aalvesjr/salario"
 	"log"
 	"os"
 	"strconv"
@@ -24,12 +24,12 @@ func main() {
 		log.Fatal(ajuda)
 	}
 	valor, err := strconv.ParseFloat(os.Args[1], 32)
-	descontos, err2 := strconv.ParseFloat(os.Args[2], 32)
-
 	if err != nil || valor < 0 {
 		log.Fatal("Formato de salário inválido! Tente: 12345.67")
 	}
-	if err2 != nil || descontos < 0 {
+
+	descontos, err := strconv.ParseFloat(os.Args[2], 32)
+	if err != nil || descontos < 0 {
 		log.Fatal("Formato de desconto inválido! Tente: 12345.67")
 	}
 
