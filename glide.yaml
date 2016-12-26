@@ -1,3 +1,0 @@
-package: github.com/aalvesjr/calcula_ir
-import:
-- package: github.com/aalvesjr/salario
