@@ -1,6 +1,8 @@
 # Calculo do Imposto de Renda (IR)
 ![alt Programa executado no terminal](https://s28.postimg.org/q9bid53el/Captura_de_tela_de_2016_12_25_22_49_50.png)
 
+Projeto para testar o uso da struct [Salario](https://github.com/aalvesjr/salario)
+
 ## Setup
 
 ```
@@ -8,6 +10,8 @@ mkdir -p $GOPATH/src/github.com/aalvesjr
 cd $GOPATH/src/github.com/aalvesjr
 git clone https://github.com/aalvesjr/calcula_ir.git
 cd calcula_ir
+
+glide install
 go build
 ```
 
