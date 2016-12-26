@@ -1,0 +1,8 @@
+hash: e3052be3f005d89f7295e18d9497a9b7ae61d4eaa118e4d74dee27367f519f65
+updated: 2016-12-26T00:01:11.136503975-02:00
+imports:
+- name: github.com/aalvesjr/salario
+  version: 8894164f7cf3c5e1f864c6dff2c386f8a6d10fec
+  subpackages:
+  - impostos
+testImports: []

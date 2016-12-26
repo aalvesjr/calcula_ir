@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/aalvesjr/calcula_ir/models"
+	salario "github.com/aalvesjr/salario"
 	"log"
 	"os"
 	"strconv"
@@ -33,20 +33,20 @@ func main() {
 		log.Fatal("Formato de desconto inválido! Tente: 12345.67")
 	}
 
-	salario := models.NewSalario(float32(valor), float32(descontos))
+	s := salario.NewSalario(float32(valor), float32(descontos))
 
-	fmt.Printf("Salário Bruto   => R$ %.2f\n", salario.Bruto)
-	fmt.Printf("Descontos       => R$ %.2f\n", salario.Descontos)
+	fmt.Printf("Salário Bruto   => R$ %.2f\n", s.Bruto)
+	fmt.Printf("Descontos       => R$ %.2f\n", s.Descontos)
 	fmt.Println("------------INSS-------------")
-	fmt.Printf("Base INSS       => R$ %.2f\n", salario.BaseINSS)
-	fmt.Printf("Aliquota INSS   => %.2f%%\n", salario.AliquotaINSS)
-	fmt.Printf("Valor INSS      => R$ %.2f\n", salario.INSS)
+	fmt.Printf("Base INSS       => R$ %.2f\n", s.BaseINSS)
+	fmt.Printf("Aliquota INSS   => %.2f%%\n", s.AliquotaINSS)
+	fmt.Printf("Valor INSS      => R$ %.2f\n", s.INSS)
 	fmt.Println("-------------IR--------------")
-	fmt.Printf("Base IR         => R$ %.2f\n", salario.BaseIR)
-	fmt.Printf("Aliquota IR     => %.2f%%\n", salario.AliquotaIR)
-	fmt.Printf("IR sem desconto => R$ %.2f\n", salario.IRSemDesconto)
-	fmt.Printf("Desconto do IR  => R$ %.2f\n", salario.DescontoIR)
-	fmt.Printf("Valor IR        => R$ %.2f\n", salario.IR)
+	fmt.Printf("Base IR         => R$ %.2f\n", s.BaseIR)
+	fmt.Printf("Aliquota IR     => %.2f%%\n", s.AliquotaIR)
+	fmt.Printf("IR sem desconto => R$ %.2f\n", s.IRSemDesconto)
+	fmt.Printf("Desconto do IR  => R$ %.2f\n", s.DescontoIR)
+	fmt.Printf("Valor IR        => R$ %.2f\n", s.IR)
 	fmt.Println("-----------------------------")
-	fmt.Printf("Salário Liquido => R$ %.2f\n", salario.Liquido)
+	fmt.Printf("Salário Liquido => R$ %.2f\n", s.Liquido)
 }
