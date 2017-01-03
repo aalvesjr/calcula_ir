@@ -2,51 +2,52 @@ package main
 
 import (
 	"fmt"
-	"github.com/aalvesjr/salario"
+	"github.com/aalvesjr/salary"
 	"log"
 	"os"
 	"strconv"
 )
 
 var (
-	ajuda string = `
-	São necessários dois argumentos para executar esse script: salário e descontos
-	Para calcular o IR de um salário de 5.000,00 e com descontos de 200,00, execute:
+	help string = `
+	Is necessary two arguments to execute this script: salary and discounts
+	To calculate the IR from one salary of 5000.00 and with discounts of 200.00, execute:
 
 	./calcula_ir 5000.00 200.00
 `
 )
 
 func main() {
-	// Recebe o salário e descontos por argumentos
+	// Receive the salary value and discounts from arguments
 	// ./calcula_ir 6120.32 501.32
 	if len(os.Args) < 3 {
-		log.Fatal(ajuda)
+		log.Fatal(help)
 	}
-	valor, err := strconv.ParseFloat(os.Args[1], 32)
-	if err != nil || valor < 0 {
-		log.Fatal("Formato de salário inválido! Tente: 12345.67")
-	}
-
-	descontos, err := strconv.ParseFloat(os.Args[2], 32)
-	if err != nil || descontos < 0 {
-		log.Fatal("Formato de desconto inválido! Tente: 12345.67")
+	value, err := strconv.ParseFloat(os.Args[1], 32)
+	if err != nil || value < 0 {
+		log.Fatal("Wrong salary format! Try something like this: 12345.67")
 	}
 
-	s := salario.NewSalario(float32(valor), float32(descontos))
+	discounts, err := strconv.ParseFloat(os.Args[2], 32)
+	if err != nil || discounts < 0 {
+		log.Fatal("Wrong discount format! Try something like this: 12345.67")
+	}
 
-	fmt.Printf("Salário Bruto   => R$ %.2f\n", s.Bruto)
-	fmt.Printf("Descontos       => R$ %.2f\n", s.Descontos)
-	fmt.Println("------------INSS-------------")
-	fmt.Printf("Base INSS       => R$ %.2f\n", s.BaseINSS)
-	fmt.Printf("Aliquota INSS   => %.2f%%\n", s.AliquotaINSS)
-	fmt.Printf("Valor INSS      => R$ %.2f\n", s.INSS)
-	fmt.Println("-------------IR--------------")
-	fmt.Printf("Base IR         => R$ %.2f\n", s.BaseIR)
-	fmt.Printf("Aliquota IR     => %.2f%%\n", s.AliquotaIR)
-	fmt.Printf("IR sem desconto => R$ %.2f\n", s.IRSemDesconto)
-	fmt.Printf("Desconto do IR  => R$ %.2f\n", s.DescontoIR)
-	fmt.Printf("Valor IR        => R$ %.2f\n", s.IR)
-	fmt.Println("-----------------------------")
-	fmt.Printf("Salário Liquido => R$ %.2f\n", s.Liquido)
+	s := salary.NewSalary(float32(value), float32(discounts))
+
+	fmt.Println("-------------Salary--------------")
+	fmt.Printf("Salary Gross        => R$ %.2f\n", s.Gross)
+	fmt.Printf("Discounts           => R$ %.2f\n", s.Discounts)
+	fmt.Println("--------------INSS---------------")
+	fmt.Printf("INSS Base           => R$ %.2f\n", s.INSSBase)
+	fmt.Printf("INSS Rate           => %.2f%%\n", s.INSSRate*100)
+	fmt.Printf("INSS Value          => R$ %.2f\n", s.INSS)
+	fmt.Println("---------------IR----------------")
+	fmt.Printf("IR Base             => R$ %.2f\n", s.IRBase)
+	fmt.Printf("IR Rate             => %.2f%%\n", s.IRRate*100)
+	fmt.Printf("IR Without Discount => R$ %.2f\n", s.IRWithoutDiscount)
+	fmt.Printf("IR Discount         => R$ %.2f\n", s.IRDiscount)
+	fmt.Printf("IR Value            => R$ %.2f\n", s.IR)
+	fmt.Println("---------------------------------")
+	fmt.Printf("Salary Net          => R$ %.2f\n", s.Net)
 }

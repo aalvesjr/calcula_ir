@@ -1,7 +1,7 @@
-# Calculo do Imposto de Renda (IR)
-![alt Programa executado no terminal](https://s28.postimg.org/q9bid53el/Captura_de_tela_de_2016_12_25_22_49_50.png)
+# Calculate IR
+![alt Script executed in terminal](https://s30.postimg.org/5notbsgld/Captura_de_tela_de_2017_01_03_21_55_04.png)
 
-Projeto para testar o uso da struct [Salario](https://github.com/aalvesjr/salario)
+Projet to test [Salary](https://github.com/aalvesjr/salary) package
 
 ## Setup
 
@@ -20,19 +20,20 @@ go build
 ```
 ./calcula_ir 5168.78 127.79
 
-#=> Salário Bruto   => R$ 5168.78
-#=> Descontos       => R$ 127.79
-#=> ------------INSS-------------
-#=> Base INSS       => R$ 5168.78
-#=> Aliquota INSS   => 11.00%
-#=> Valor INSS      => R$ 568.57
-#=> -------------IR--------------
-#=> Base IR         => R$ 4600.21
-#=> Aliquota IR     => 22.50%
-#=> IR sem desconto => R$ 1035.05
-#=> Desconto do IR  => R$ 636.13
-#=> Valor IR        => R$ 398.92
-#=> -----------------------------
-#=> Salário Liquido => R$ 4073.51
+#=> --------------Salary---------------
+#=> Salary Gross         => R$ 5168.78
+#=> Discounts            => R$ 127.79
+#=> ---------------INSS----------------
+#=> INSS Base            => R$ 5168.78
+#=> INSS Rate            => 11.00%
+#=> INSS Value           => R$ 568.57
+#=> ----------------IR-----------------
+#=> IR Base              => R$ 4600.21
+#=> IR Rate              => 22.50%
+#=> IR Without Discount  => R$ 1035.05
+#=> IR Discount          => R$ 636.13
+#=> IR Value             => R$ 398.92
+#=> -----------------------------------
+#=> Salary Net           => R$ 4073.51
 
 ```
